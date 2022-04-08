@@ -21,3 +21,10 @@ test('button has correct initial color', () => {
   
   
 });
+
+test('initial conditions', () => {
+  render(<App/>)
+  // check that the button starts out enabled
+
+  // check that the button starts out unchecked
+})
