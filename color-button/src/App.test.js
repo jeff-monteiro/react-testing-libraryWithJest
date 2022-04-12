@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import App from './App';
 
 test('button has correct initial color', () => {
@@ -33,3 +34,16 @@ test('initial conditions', () => {
   const checkbox = screen.getByRole('checkbox');
   expect(checkbox).not.toBeChecked();
 });
+
+test('Checkbox disables button on first click and enables on second click', () =>{
+  render(<App/>);
+
+  const checkbox = screen.getByRole('checkbox');
+  const button = screen.getByRole('button');
+
+  userEvent.click(checkbox);
+  expect(button).toBeDisabled();
+
+  userEvent.click(checkbox);
+  expect(button).toBeEnabled();
+})
