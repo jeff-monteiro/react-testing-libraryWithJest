@@ -52,7 +52,26 @@ test('Disabled button has gray background and reverts to red', () => {
   render(<App/>);
    const checkbox = screen.getByRole('checkbox', { name: 'Disable button'});
    const colorButton = screen.getByRole('button', { name: 'Change to blue'});
-
+  
+   // disable button
    userEvent.click(checkbox);
    expect(colorButton).toHaveStyle('background-color: gray');
-})
+  
+   // re-enable button
+   userEvent.click(checkbox);
+   expect(colorButton).toHaveStyle('background-color: red');
+});
+
+test('Clicked disabled button has gray background and reverts to blue', () => {
+  render(<App/>);
+  const checkbox = screen.getByRole('checkbox', { name: 'Disable button'});
+  const colorButton = screen.getByRole('button', { name: 'Change to blue'});
+
+  userEvent.click(colorButton);
+
+  userEvent.click(checkbox);
+  expect(colorButton).toHaveStyle('background-color: gray');
+
+  userEvent.click(checkbox);
+  expect(colorButton).toHaveStyle('background-color: blue');
+});
