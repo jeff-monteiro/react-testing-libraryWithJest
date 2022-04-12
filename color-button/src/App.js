@@ -15,6 +15,7 @@ function App() {
         onClick = {() => setButtonColor(newButtonColor)} disabled = {disabled}>
         Change to { newButtonColor }
       </button>
+      <br />
       <input type="checkbox" 
       id="enable-button-checkbox" 
       default={disabled} 
