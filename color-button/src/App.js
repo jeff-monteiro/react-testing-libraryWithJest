@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -11,17 +10,19 @@ function App() {
 
   return (
     <div>
-      <button style = {{ backgroundColor: buttonColor }}
-        onClick = {() => setButtonColor(newButtonColor)} disabled = {disabled}>
+      <button 
+        style = {{ backgroundColor: disabled ? 'gray' : buttonColor }}
+        onClick = {() => setButtonColor(newButtonColor)} 
+        disabled = {disabled}>
         Change to { newButtonColor }
       </button>
       <br />
       <input type="checkbox" 
-      id="disabled-button-checkbox" 
+      id="disable-button-checkbox" 
       default={disabled} 
       aria-checked={disabled} 
       onChange = {(e) => setDisabled(e.target.checked)} />
-      <label htmlFor='disabled-button-checkbox'>Disabled</label>
+      <label htmlFor="disable-button-checkbox">Disable button</label>
     </div>
   );
 }
