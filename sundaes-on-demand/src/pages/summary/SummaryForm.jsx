@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 export default function SummaryForm() {
 
   const [tcChecked, setTcChecked] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   const checkboxLabel = (
     <span>
