@@ -27,8 +27,10 @@ test('Checkbox enables button on first click and disables on secondclick', () =>
 });
 
 test('popover responds to hover', () => {
+  render(<SummaryForm />);
   // popover starts out hidden
-
+  const nullPopover = screen.queryByText(/no ice cream will actually be delivered/i);
+  expect(nullPopover).not.toBeInTheDocument();
   // popover appears upon mouseover of checkbox label
 
   // popover disappears when we mouse out
