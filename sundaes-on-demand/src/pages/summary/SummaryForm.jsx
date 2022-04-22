@@ -1,6 +1,18 @@
 import React, {useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Popover from 'react-bootstrap/Popover';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+
+
+
+// const Example = () => (
+//   <OverlayTrigger trigger="click" placement="right" overlay={popover}>
+//     <Button variant="success">Click me to see</Button>
+//   </OverlayTrigger>
+// );
+
+// render(<Example />);
 
 export default function SummaryForm() {
 
@@ -11,6 +23,12 @@ export default function SummaryForm() {
     <span>
       I agree to <span style={{color: 'blue'}}>Terms and Conditions</span>
     </span>
+  );
+
+  const popover = (
+    <Popover id="popover-basic">
+      <Popover.Body>No ice cream will actually be delivered</Popover.Body>
+    </Popover>
   );
 
   return (
@@ -27,5 +45,6 @@ export default function SummaryForm() {
         Confirm order
       </Button>
     </Form>
+    /*  */
   );
 }
